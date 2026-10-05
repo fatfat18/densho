@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dennis Jugalbot — Digital Creative Portfolio">
+<title>Dennis Jugalbot | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--card:#111;--card2:#161616;--text:#f5f5f5;--muted:#969696;--line:#292929;--accent:#d7ff4f;--max:1180px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit}
+.container{width:min(calc(100% - 36px),var(--max));margin:auto}.accent{color:var(--accent)}
+header{position:fixed;z-index:20;top:0;left:0;right:0;border-bottom:1px solid transparent;transition:.3s}
+header.scrolled{background:#070707dd;backdrop-filter:blur(16px);border-color:var(--line)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{font:800 1.15rem "Space Grotesk"}.logo span{color:var(--accent)}
+.nav{display:flex;gap:27px;list-style:none}.nav a{font-size:.84rem;color:#aaa}.nav a:hover{color:var(--accent)}
+.menu{display:none;background:none;color:#fff;border:0;font-size:1.4rem}
+.hero{min-height:100vh;padding:150px 0 90px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;right:-220px;top:-200px;background:var(--accent);filter:blur(180px);opacity:.07}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:800;color:var(--accent);margin-bottom:15px}
+.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:60px;align-items:end}
+h1{font:800 clamp(3.5rem,9vw,8rem)/.86 "Space Grotesk";letter-spacing:-.075em;max-width:900px}
+.outline{color:transparent;-webkit-text-stroke:1px #777}
+.lead{max-width:600px;color:#aaa;margin:30px 0;font-size:1rem}.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border:1px solid var(--line);border-radius:99px;font-weight:700;font-size:.84rem;transition:.25s}
+.btn:hover{transform:translateY(-2px)}.primary{background:var(--accent);border-color:var(--accent);color:#080808}.secondary:hover{background:#151515;border-color:#555}
+.hero-stat{border:1px solid var(--line);background:linear-gradient(145deg,#151515,#0d0d0d);border-radius:22px;padding:28px}
+.hero-stat strong{font:700 4.6rem "Space Grotesk";color:#222}.hero-stat h3{font:700 1.15rem "Space Grotesk";margin:8px 0}.hero-stat p{font-size:.82rem;color:#777}
+section{padding:110px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}.section-title{font:700 clamp(2.2rem,5vw,4rem)/1 "Space Grotesk";letter-spacing:-.05em;max-width:720px}.section-copy{color:#777;max-width:420px;font-size:.85rem}
+.about{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.about p{color:#aaa;margin-bottom:16px}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}.fact{border-top:1px solid var(--line);padding-top:12px}.fact strong{display:block}.fact span{font-size:.72rem;color:#666}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.skill{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:22px;min-height:155px;transition:.25s}.skill:hover{transform:translateY(-4px);border-color:#4b4b4b}.skill-icon{font-size:1.5rem;margin-bottom:24px}.skill h3{font-size:.95rem}.skill p{font-size:.75rem;color:#777;margin-top:5px}
+.work{background:#0b0b0b}.portfolio{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.project{grid-column:span 6;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--card);transition:.3s}.project:hover{transform:translateY(-4px);border-color:#444}
+.project:nth-child(3){grid-column:span 7}.project:nth-child(4){grid-column:span 5}
+.media{height:310px;background:#171717;position:relative;overflow:hidden}.media img,.media video{width:100%;height:100%;object-fit:cover}.placeholder{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#555;text-align:center;padding:20px}.placeholder b{font:700 3rem "Space Grotesk";color:#292929}.placeholder span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.project-body{padding:22px}.project-number{font-size:.68rem;color:#666}.project h3{font:700 1.45rem "Space Grotesk";margin:5px 0}.project p{font-size:.8rem;color:#777}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.tag{border:1px solid #292929;border-radius:99px;padding:4px 8px;font-size:.64rem;color:#999}
+.video-showcase{margin-top:14px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#101010}
+.fb-video-container{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.fb-video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+.video-caption{padding:16px 20px;color:#888;font-size:.78rem}
+.timeline{border-top:1px solid var(--line)}.job{display:grid;grid-template-columns:170px 1fr 150px;gap:25px;padding:27px 0;border-bottom:1px solid var(--line)}.job .date,.job .type{color:#777;font-size:.75rem}.job .type{text-align:right;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}.job h3{font-size:1.05rem}.job p{font-size:.8rem;color:#777;margin-top:4px}
+.contact{text-align:center;padding:145px 0;border-top:1px solid var(--line);position:relative;overflow:hidden}.contact:before{content:"";position:absolute;width:500px;height:300px;background:var(--accent);filter:blur(170px);opacity:.05;left:50%;top:30%;transform:translate(-50%,-50%)}.contact>*{position:relative}.contact h2{font:800 clamp(3.2rem,8vw,7.5rem)/.88 "Space Grotesk";letter-spacing:-.07em}.contact p{color:#777;max-width:520px;margin:25px auto 30px}
+footer{border-top:1px solid var(--line);padding:23px 0;color:#666;font-size:.7rem}footer .foot{display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(18px);transition:.7s}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){.nav{display:none;position:absolute;top:76px;left:18px;right:18px;background:#111;border:1px solid var(--line);border-radius:16px;padding:14px;flex-direction:column}.nav.open{display:flex}.menu{display:block}.hero-grid,.about{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.project,.project:nth-child(3),.project:nth-child(4){grid-column:span 12}.job{grid-template-columns:1fr}.job .type{text-align:left}}
+@media(max-width:520px){.container{width:calc(100% - 26px)}section{padding:80px 0}.hero{padding-top:120px}.hero h1{font-size:3.35rem}.skills{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.media{height:250px}footer .foot{flex-direction:column;gap:7px}}
+</style>
+</head>
+<body>
+<header id="header"><div class="container"><nav>
+<a href="#home" class="logo">DENNIS JUGALBOT<span>.</span></a>
+<button class="menu" id="menu">☰</button>
+<ul class="nav" id="nav"><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#work">Work</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-grid">
+<div class="reveal"><div class="eyebrow">Digital Creative / IT Professional</div><h1>Ideas into <span class="outline">digital</span> work.</h1>
+<p class="lead">I'm Dennis Laurente M. Jugalbot, an all-around digital creative working across video editing, graphic design, GIS & mapping, drone content, documentation, and technical support.</p>
+<div class="actions"><a class="btn primary" href="#work">View My Work</a><a class="btn secondary" href="#contact">Let's Talk</a></div></div>
+<div class="hero-stat reveal"><strong>DLJ</strong><h3>Creative + Technical</h3><p>A practical mix of IT knowledge, visual storytelling, mapping, documentation, and digital content creation.</p></div>
+</div></section>
+
+<section id="about"><div class="container about"><div class="reveal"><div class="eyebrow">About Me</div><h2 class="section-title">More than one skill. One reliable creative.</h2></div>
+<div class="reveal"><p>I'm an IT graduate with hands-on experience in digital content, office documentation, mapping, visual design, and technical tasks.</p><p>I enjoy work that combines technology and creativity, from editing videos and designing social media materials to creating maps, documenting events, and capturing outdoor experiences through drone photography.</p><p>My goal is to create useful, clean, and professional work while continuously learning new tools.</p>
+<div class="facts"><div class="fact"><strong>IT Graduate</strong><span>Technical foundation</span></div><div class="fact"><strong>Creative</strong><span>Video & visual content</span></div><div class="fact"><strong>GIS</strong><span>Mapping & geotagging</span></div><div class="fact"><strong>Remote Ready</strong><span>Admin & digital support</span></div></div></div></div></section>
+
+<section id="skills"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">What I Do</div><h2 class="section-title">A versatile set of digital skills.</h2></div><p class="section-copy"></p></div>
+<div class="skills"><div class="skill reveal"><div class="skill-icon">🎬</div><h3>Video Editing</h3><p>CapCut, Sony Vegas and short-form content.</p></div><div class="skill reveal"><div class="skill-icon">✦</div><h3>Graphic Design</h3><p>Canva, layouts, presentations and social graphics.</p></div><div class="skill reveal"><div class="skill-icon">⌖</div><h3>GIS & Mapping</h3><p>QGIS, geotagging and spatial visualization.</p></div><div class="skill reveal"><div class="skill-icon">⌁</div><h3>Drone Content</h3><p>Aerial photos, videos and outdoor documentation.</p></div><div class="skill reveal"><div class="skill-icon">▣</div><h3>Documentation</h3><p>Photo/video coverage and organized files.</p></div><div class="skill reveal"><div class="skill-icon">⌘</div><h3>Admin Support</h3><p>Data entry, encoding and digital tasks.</p></div><div class="skill reveal"><div class="skill-icon">◫</div><h3>Computer Skills</h3><p>Basic hardware and software troubleshooting.</p></div><div class="skill reveal"><div class="skill-icon">△</div><h3>AutoCAD</h3><p>Basic drafting and technical drawing.</p></div></div></div></section>
+
+<section class="work" id="work"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">Selected Work</div><h2 class="section-title">Featured Work.</h2></div></p></div>
+<div class="portfolio">
+  
+  <!-- Project 1 -->
+  <article class="project reveal">
+    <div class="media">
+      <video controls onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <source src="./assets/videos/project-1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="placeholder"><b>01</b><span>Video Not Found</span></div>
+    </div>
+    <div class="project-body">
+      <h3>Drone Operating</h3>
+      <p>Drone photography, outdoor adventures and visual storytelling.</p>
+      <div class="tags"><span class="tag">Aerial Photography</span><span class="tag">Aerial Video</span><span class="tag">Drone Operations</span></div>
+    </div>
+  </article>
+
+  <!-- Project 2 -->
+  <article class="project reveal">
+<div class="media">
+  <div class="placeholder" style="background: #000;">
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.instagram.com/reel/1885780802055003/embed" 
+      scrolling="no" 
+      style="border:none;overflow:hidden">
+    </iframe>
+  </div>
+  <div class="placeholder"><b>02</b><span>Reel Not Found</span></div>
+</div>
+  </article>
+
+  <!-- Project 3 -->
+  <article class="project reveal">
+    <div class="media">
+      <img src="./assets/images/project-3.jpg" alt="Event Documentation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="placeholder"><b>03</b><span>Image Not Found</span></div>
+    </div>
+    <div class="project-body">
+      <h3>Event Documentation</h3>
+      <p>Event coverage, social media videos and documentation materials.</p>
+      <div class="tags"><span class="tag">Event Coverage</span><span class="tag">Photography</span><span class="tag">Videography</span></div>
+    </div>
+  </article>
+
+  <!-- Project 4 -->
+  <article class="project reveal">
+    <div class="media">
+      <img src="./assets/images/project-4.jpg" alt="Digital Design" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="placeholder"><b>04</b><span>Image Not Found</span></div>
+    </div>
+    <div class="project-body">
+      <h3>Digital Design</h3>
+      <p>Reports, presentations, promotional layouts and social media graphics.</p>
+      <div class="tags"><span class="tag">Canva</span><span class="tag">Layout</span><span class="tag">Branding</span></div>
+    </div>
+  </article>
+</div>
+
+  <!-- Project 5 -->
+<div class="video-showcase reveal">
+  <div class="fb-video-container">
+    <iframe 
+      id="fb-reel-iframe"
+      data-src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1766156954620045&show_text=false&autoplay=true&muted=true" 
+      style="border:none;overflow:hidden" 
+      scrolling="no" 
+      frameborder="0" 
+      allowfullscreen="true" 
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+  <div class="video-caption">Featured Facebook Reel · Aerial & Outdoor Content</div>
+</div>
+
+<section id="experience"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">Experience</div><h2 class="section-title">Experience across different environments.</h2></div></div>
+<div class="timeline"><div class="job reveal"><div class="date">2024 — Present</div><div><h3>Office Clerk</h3><p>Documentation, encoding, mapping support, social media updates, layouts, photo/video documentation and office digital tasks.</p></div><div class="type">Professional</div></div><div class="job reveal"><div class="date">2022</div><div><h3>Park Attendant</h3><p>Seven Seas Waterpark & Resort. Guest assistance, facility support and day-to-day operational tasks.</p></div><div class="type">Experience</div></div><div class="job reveal"><div class="date">Ongoing</div><div><h3>Social Media Content Creator</h3><p>Creating Facebook content, photo/video posts, promotional graphics, short-form videos and digital materials.</p></div><div class="type">Creative</div></div></div></div></section>
+
+<section class="contact" id="contact"><div class="container reveal"><div class="eyebrow">Let's Work Together</div><h2>Have a project?<br><span class="accent">Let's create.</span></h2><p>I'm open to freelance, remote, creative, administrative and digital projects.</p><div class="actions" style="justify-content:center"><a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=dennislaurentejugalbot@gmail.com" target="_blank" rel="noopener noreferrer">Email Me</a><a class="btn secondary" href="https://facebook.com/" target="_blank">Facebook</a></div></div></section>
+</main>
+<footer><div class="container foot"><span>© <span id="year"></span> Dennis Jugalbot.</span><span>Built with curiosity + creativity.</span></div></footer>
+
+<script>
+const header = document.getElementById('header');
+const menu = document.getElementById('menu');
+const nav = document.getElementById('nav');
+
+// Header scroll effect
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
+
+// Mobile menu toggle
+menu.onclick = () => nav.classList.toggle('open');
+document.querySelectorAll('.nav a').forEach(a => a.onclick = () => nav.classList.remove('open'));
+
+// Dynamic footer year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Scroll reveal observer
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(e => obs.observe(e));
+
+// Autoplay video on scroll observer
+const videoIframe = document.getElementById('fb-reel-iframe');
+
+if (videoIframe) {
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Load src with autoplay enabled when visible
+        if (!videoIframe.src) {
+          videoIframe.src = videoIframe.getAttribute('data-src');
+        }
+      }
+    });
+  }, { threshold: 0.5 }); // Triggers when at least 50% of the video is visible
+
+  videoObserver.observe(videoIframe);
+}
+</script>
+</body>
+</html>
